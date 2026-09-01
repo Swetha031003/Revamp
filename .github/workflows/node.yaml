@@ -30,6 +30,7 @@ jobs:
           curl http://localhost:3000
           curl http://localhost:3000/health
           pkill -f "node app.js"
+          pkill -f "node app.js"
 
 
         
