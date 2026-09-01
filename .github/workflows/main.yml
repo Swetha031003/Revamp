@@ -12,6 +12,7 @@ jobs:
        - name: build step
          run:  echo "build pipeline"
    deploy:
+   need: build
      runs-on: [self-hosted,wsl-ubuntu]
 
      steps:
