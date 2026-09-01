@@ -8,30 +8,28 @@ on:
   workflow_dispatch:  
 
 jobs:
- node:
+  node:
     runs-on: [self-hosted, wsl-ubuntu]
 
-    
     steps:
       - name: Check out code
         uses: actions/checkout@v7
 
       - name: Node Setup
-      - uses: actions/setup-node@v7
+        uses: actions/setup-node@v7
         with:
-    node-version: 24
+          node-version: "24"
 
-      - name: Install dependencies  
+      - name: Install dependencies
         run: npm install
 
       - name: Run application
         run: |
-        node app.js &
-        slepp 5
-        curl http://localhost:3000
-        curl http://localhost:3000/health
-        pkill -f "node app.js"
-      
+          node app.js &
+          sleep 5
+          curl http://localhost:3000
+          curl http://localhost:3000/health
+          pkill -f "node app.js"
 
 
         
